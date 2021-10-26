@@ -37,14 +37,18 @@ def read_web_file():
 result = read_web_file()
 all_h3_tag = result.find_all("h3")
 
+# Adding the h3.name to the list
 for tag in all_h3_tag:
     all_movies.append(tag.string)
 
+# Renaming the last value in a movie list
 temp = all_movies[-1]
 all_movies[-1] = f"1)" + temp
 
+# Reverse the movie list
 all_movies.reverse()
 
+# Create a movie.txt
 with open("all movies", mode="w", encoding="utf-8") as fp:
     for movie in all_movies:
         fp.writelines(movie + "\n")
